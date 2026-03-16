@@ -1,0 +1,52 @@
+<section id="skills">
+    <div class="skills-info-container-mobile">
+        <div class="header">
+            <h1>{{'skills.myskills' | translate}}</h1>
+            <div class="line"></div>
+        </div>
+        <div class="skills-info-container-content">
+            <p>
+                {{ 'skills.intro1' | translate }}<br><br>
+                {{ 'skills.intro2' | translate }}
+            </p>
+        </div>
+    </div>
+    <div class="skills-container">
+        <div class="skills-grid">
+            <app-skill skill="html"></app-skill>
+            <app-skill skill="css"></app-skill>
+            <app-skill skill="javascript"></app-skill>
+            <app-skill skill="typescript"></app-skill>
+            <app-skill skill="angular"></app-skill>
+            <app-skill skill="firebase"></app-skill>
+            <app-skill skill="git"></app-skill>
+            <app-skill skill="api"></app-skill>
+        
+            <app-skill skill="materialdesign"></app-skill>                
+            <div class="continuallylearning filter-color" #target                        
+                (mouseenter)="showTooltip()"
+                (click)="showTooltip()"
+                (mouseleave)="hideTooltip()">
+            
+            </div>
+        </div>
+    </div>
+    <div class="skills-info-container">
+        <div class="header" #contentContainer>
+            <app-section-divider align="right" color="#9747FF" [containerEl]="contentContainerRef.nativeElement"></app-section-divider>
+            <h1>{{'skills.myskills' | translate}}</h1>
+            <div class="line"></div>            
+        </div>
+        <div class="skills-info-container-content">
+            <p>
+                {{ 'skills.intro1' | translate }}<br><br>
+                {{ 'skills.intro2' | translate }}
+            </p>
+        </div>
+        <div class="skills-info-container-subheader">
+            <h2 [innerHTML]="'skills.subheader' | translate"></h2>
+            <p>{{ 'skills.subheadertext' | translate }}</p>
+            <div class="btn btn-style1" [routerLink]="[]" fragment="contact">{{ 'skills.getintouch' | translate }}</div>
+        </div>
+    </div>
+</section>

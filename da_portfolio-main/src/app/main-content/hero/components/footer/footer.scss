@@ -1,0 +1,44 @@
+@use 'index' as *;
+
+span {
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    background-color: $color_primary2;
+    height: 4px;
+    width: 92px;
+}
+
+.links {
+    display: flex;
+    gap: 32px;
+    margin: 0 32px;
+}
+
+.contact {
+    color: white;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.link {
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+    width: 30px;
+
+    &:hover {
+        transform: scale(1.4);
+    }
+}
+
+@media (max-width: 600px) {
+    .contact {
+        display: none;
+    }
+}

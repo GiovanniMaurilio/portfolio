@@ -1,0 +1,17 @@
+<div class="content">
+    <div class="feedback">
+        <p class="feedback-text">
+            {{ 'feedback.feedback_' + author | translate }}
+        </p>
+        <div class="feedback-author">
+            <div class="line-author"></div>
+            <span>{{ 'feedback.author_' + author | translate}}</span>
+        </div>
+        <img class="feedback-img" src="/icons/feedback.svg">
+    </div>
+    <div class="img-box" #contentContainer>
+        <app-section-divider align="right" color="#9747FF" [containerEl]="contentContainerRef.nativeElement"></app-section-divider>
+        <img class="img-feedback" src="/img/feedback_{{author}}.png">
+        <div class="line"></div>
+    </div>
+</div>

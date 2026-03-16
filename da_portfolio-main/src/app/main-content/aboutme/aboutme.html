@@ -1,0 +1,35 @@
+<section id="aboutme">
+    <h1>{{'header.aboutme' | translate}}</h1>
+    <div>
+        <div class="aboutme-box">
+            <p>
+                {{'aboutme.intro1' | translate }}<br><br>
+                {{'aboutme.intro2' | translate }}<br><br>
+                {{'aboutme.intro3' | translate }}
+            </p>
+            <div class="infobox">
+                <img src="/icons/location.svg" alt="">
+                <p>
+                    {{'aboutme.location' | translate }}
+                </p>
+            </div>
+            <div class="infobox">
+                <img src="/icons/lamp.svg" alt="">
+                <p>
+                    {{ 'aboutme.openminded' | translate }}
+                </p>
+            </div>
+            <div class="infobox">
+                <img src="/icons/puzzle.svg" alt="">
+                <p>
+                    {{ 'aboutme.problemsolving' | translate }}
+                </p>
+            </div>
+        </div>
+        <div class="img-box" [class.animate]="isVisible" #element>
+            <img class="img-me" src="/img/hero_me2.png">
+            <div class="line"></div>
+            <app-section-divider align="right" [offset]="200" color="#70E61C" [containerEl]="elementRef.nativeElement"></app-section-divider>
+        </div>
+    </div>
+</section>

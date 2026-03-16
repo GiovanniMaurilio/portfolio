@@ -1,0 +1,10 @@
+<div class="content" #contentContainer>    
+    <app-section-divider align="left" color="#9747FF" [containerEl]="contentContainerRef.nativeElement"></app-section-divider>
+    <div class="line"></div>
+    <div class="links">
+        <a href="https://github.com/GiovanniMaurilio" target="_blank"><img class="link"  src="/icons/github.svg" alt="{{'footer.alt.github' | translate }}"></a>
+        <a [routerLink]="['/']" fragment="contact"><img class="link" src="/icons/contact.svg" alt="{{'footer.alt.contact' | translate }}"></a>
+        <a href="https://www.linkedin.com/in/giovanni-maurilio-0411a91a7/" target="_blank"><img class="link" src="/icons/linkedin.svg" alt="{{'footer.alt.linkedin' | translate }}"></a>
+    </div>
+    <a><span class="contact" [routerLink]="[]" fragment="contact">giovannimaurilio04&#64;gmail.com</span></a>
+</div>

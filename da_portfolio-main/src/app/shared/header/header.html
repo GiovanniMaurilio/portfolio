@@ -1,0 +1,38 @@
+<div class="root-content">
+    <header class="content-container">
+        <a href="/"><img class="logo" src="/icons/logo.svg" alt="{{'header.alt.logo' | translate }}"></a>
+        <div class="header-nav-container">
+            <nav>
+                <a class="" [routerLink]="['/']" fragment="aboutme">{{'header.aboutme' | translate }}</a>
+                <a class="" [routerLink]="['/']" fragment="skills">{{'header.skills' | translate }}</a>
+                <a class="" [routerLink]="['/']" fragment="portfolio">{{'header.portfolio' | translate }}</a>
+            </nav>
+            <div>
+                <a (click)="switchLanguage('de')" [class.selected]="currentLang === 'de'" class="btn-style3">DE</a>
+                <a (click)="switchLanguage('en')" [class.selected]="currentLang === 'en'" class="btn-style3">EN</a>
+            </div>
+        </div>
+        <div class="header-nav-container-mobile">
+            <img (click)="toggleMenu()" [src]="iconMenu" alt="{{'header.alt.burger' | translate}}">
+        </div>
+        <div class="overlay-menu" [class.open]="showMenu" [class.close]="!showMenu">
+            <div class="overlay-header">
+            </div>
+            <div class="overlay-content">
+                <nav>
+                    <a (click)="toggleMenu()" class="btn-style4" [routerLink]="['/']"
+                        fragment="aboutme">{{'header.aboutme' | translate }}</a>
+                    <a (click)="toggleMenu()" class="btn-style4" [routerLink]="['/']"
+                        fragment="skills">{{'header.skills' | translate }}</a>
+                    <a (click)="toggleMenu()" class="btn-style4" [routerLink]="['/']"
+                        fragment="portfolio">{{'header.portfolio' | translate }}</a>
+                </nav>
+                <div class="lang">
+                    <a (click)="switchLanguage('de')" [class.selected]="currentLang === 'de'" class="btn-style4">DE</a>
+                    <span>/</span>
+                    <a (click)="switchLanguage('en')" [class.selected]="currentLang === 'en'" class="btn-style4">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

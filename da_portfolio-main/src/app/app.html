@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="root-container">
+  <div class="bg-images" *ngIf="router.url !== '/legalnotice' && router.url !== '/privacy'">
+    <div class="bg-image img-photoshadow">
+      <img src="/img/photo_shadow.svg" alt="">
+    </div>
+    <div class="bg-image img3">
+      <img src="/img/purple_shadow_aboutme.svg" alt="">
+    </div>
+    <div class="bg-image img4">
+      <img src="/img/green_shadow_skills.svg" alt="">
+    </div>
+    <div class="bg-image img5">
+      <img src="/img/purple_shadow_footer.svg" alt="">
+    </div>
+    <div class="bg-image img6">
+      <img src="/img/green_shadow_skills.svg" alt="">
+    </div>
+    <div class="bg-image img7">
+      <img src="/img/purple_shadow_aboutme.svg" alt="">
+    </div>
+    <div class="bg-image hero-me" #heroMe>
+      <img src="/img/hero_me.png" alt="">
+    </div>
+  </div>
+  <div class="bg-image hero-bg-container" *ngIf="router.url !== '/legalnotice' && router.url !== '/privacy'" #heroBgContainer>
+    <img src="/img/hero_background.svg" alt="">
+  </div>
+  <div class="fullWidthContainer">
+    <div class="mainContentContainer content-container">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

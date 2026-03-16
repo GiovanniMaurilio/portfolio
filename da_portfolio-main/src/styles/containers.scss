@@ -1,0 +1,29 @@
+@use 'variables';
+
+.root-container {    
+  overflow-x: hidden;
+  position: relative;
+  background-color: variables.$color_bg;
+}
+
+.fullWidthContainer {
+    max-width: variables.$max_container_width;
+    margin: 0 auto;
+    z-index: 1;
+    background: black;
+}
+
+.mainContentContainer {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - 4px);
+    background: variables.$color_bg;
+}
+
+.page-container {
+    margin: 50px 100px;
+}
+
+@media (max-width: 900px) {    
+    .page-container {
+        margin: 50px 25px;  
+    }
+}

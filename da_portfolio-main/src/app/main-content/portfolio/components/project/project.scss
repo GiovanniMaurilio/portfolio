@@ -1,0 +1,170 @@
+@use 'index' as *;
+
+h2 {
+    color: $color_primary2;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: $color_primary1;
+    margin-bottom: 15px;
+}
+
+img {
+    height: 200px;
+    width: auto;
+
+    opacity: 0;
+    transition: all 0.6s ease-out;
+}
+
+.img-align-left {
+    transform: translateX(-300px);
+}
+
+.img-align-right {
+    transform: translateX(300px);
+}
+
+img.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+p {
+    color: white;
+
+    &.align-right {
+        text-align: right;
+    }
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.project-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 160px;
+    
+    &.align-right {
+        flex-direction: row-reverse;
+    }
+}
+
+.project-info-box {
+    display: flex;
+    flex-direction: column;
+    
+    &.align-right {
+        align-items: flex-end;
+    }
+
+    &.align-left {
+        align-items: flex-start;
+    }
+}
+
+.project-btns {
+    display: flex;
+    gap: 116px;
+    margin-top: 35px;
+
+    &.align-right {
+        justify-content: flex-end;
+    }
+
+    &.align-left {
+        justify-content: flex-start;
+    }
+}
+
+
+@media (max-width: 1280px) {
+    .btn {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .btn {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .project-container {
+        gap: 80px;
+    }
+
+    .project-btns {
+        gap: 58px;
+    }
+}
+
+@media (max-width: 960px) {    
+    img {
+        height: 150px;
+    }
+
+    .project-container {
+        align-items: center;
+
+        &.align-right {
+            flex-direction: column-reverse;
+        }
+
+        &.align-left {
+            flex-direction: column-reverse;
+        }
+    }
+   
+    .img-align-left {
+        transform: translateX(0);
+    }
+
+    .img-align-right {
+        transform: translateX(0);
+    }
+
+    .project-info-box {
+        &.align-right {
+            align-items: center;
+        }
+
+        &.align-left {
+            align-items: center;
+        }
+    }
+    
+    p {
+        &.align-right {
+            text-align: center;
+        }
+
+        &.align-left {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .project-btns {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 400px) {
+    .project-btns {
+        gap: 16px;
+    }
+}

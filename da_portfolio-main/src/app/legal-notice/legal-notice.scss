@@ -1,0 +1,23 @@
+@use 'index' as *;
+
+section {
+    display: flex;
+}
+
+h4 {
+    color: white;
+}
+
+p {
+    color: white;
+    margin: 5px 0;
+}
+
+a {
+    color: white;
+    transition: color 125ms;
+
+    &:hover {
+        color: $color_primary1;
+    }
+}

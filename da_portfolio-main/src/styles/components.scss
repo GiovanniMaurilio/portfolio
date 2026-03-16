@@ -1,0 +1,91 @@
+@use 'variables';
+
+.btn-style1 {
+    border-radius: 10px;
+    background-color: variables.$color_primary1;
+    color: white;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:not(:disabled):hover {
+        background-color: variables.$color_primary2;
+        transform: scale(1.2);
+    }
+    
+    &:Not(:disabled):active {
+        background-color: white;
+        color: black;
+    }
+
+    &:disabled {
+        background-color: variables.$color_disabled;
+        cursor: not-allowed;
+    }
+}
+
+.btn-style2 {
+    border-radius: 10px;
+    border: 1px solid variables.$color_primary1;
+    color: white;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: variables.$color_primary1;
+    }
+}
+
+.btn-style3 {
+    border-radius: 10px;
+    border: 1px solid variables.$color_primary1;
+    color: white;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: variables.$color_primary2;
+    }
+
+    &:active {
+        background-color: white;
+        color: variables.$color_primary2;
+    }
+
+    &.selected {
+        color: white;
+        background-color: variables.$color_primary1;
+    }
+}
+
+.btn-style4 {
+    color: white;
+    
+    &:hover {
+        color: variables.$color_primary2;
+    }
+
+    &:active {
+        color: variables.$color_primary2;
+        font-weight: 600;
+    }
+
+    &.selected {
+        color: variables.$color_primary1;
+        font-weight: 600;
+    }
+}
+
+.btn-style5 {
+    border-radius: 10px;
+    background-color: variables.$color_primary2;
+    color: white;
+    cursor: pointer;
+    transition: all 125ms ease-in-out;
+
+    &:hover {
+        background-color: variables.$color_primary1;
+    }
+    
+    &:active {
+        background-color: white;
+        color: variables.$color_primary1;
+    }
+}

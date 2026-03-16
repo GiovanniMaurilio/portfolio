@@ -1,0 +1,16 @@
+<div class="project-container" [ngClass]="{'align-left': align === 'left', 'align-right': align === 'right'}">
+    <img src="/img/project_{{project}}.png" alt="" [ngClass]="{'img-align-left': align === 'left', 'img-align-right': align === 'right'}" [class.animate]="isVisible" #element>
+    <div class="project-info-box" [ngClass]="{'align-left': align === 'left', 'align-right': align === 'right'}">
+        <h2>{{ 'projects.' + project | translate }}</h2>
+        <div>
+            <h3>{{ skills.join(' | ') }}</h3>
+        </div>
+        <p [ngClass]="{'align-left': align === 'left', 'align-right': align === 'right'}">
+            {{ 'projects.' + project + '.description' | translate }}
+        </p>
+        <div class="project-btns" [ngClass]="{'align-left': align === 'left', 'align-right': align === 'right'}">
+            <a href="/apps/da_{{project}}" target="_blank"><div class="btn btn-style5">{{ 'projects.livetest' | translate }}</div></a>
+            <a href="https://github.com/GiovanniMaurilio{{project}}" target="_blank"><div class="btn btn-style2">{{ 'projects.github' | translate }}</div></a>
+        </div>
+    </div>
+</div>

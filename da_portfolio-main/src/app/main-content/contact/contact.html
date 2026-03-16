@@ -1,0 +1,107 @@
+<section id="contact">
+    <div class="header" #contentContainer>
+        <app-section-divider align="left" color="#9747FF" [containerEl]="contentContainerRef.nativeElement"></app-section-divider>
+        <div class="line"></div>
+        <h1>{{'contact.contact' | translate}}</h1>
+    </div>
+    <div class="content">
+        <div>
+            <h2>{{ 'contact.title' | translate }}</h2>
+            <p>{{ 'contact.intro' | translate }}</p>
+        </div>
+        <div>
+            <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" *ngIf="!mailSended && !mailSendFailed">
+                <div>
+                    <div class="input-field-wrapper">
+                        <input name="contactName" class="input-field" type="text" ngModel #contactName="ngModel" placeholder="{{ 'contact.name' | translate }}" required
+                            [ngClass]="{
+                                    'valid': contactName.valid && (contactName.touched),
+                                    'invalid': contactName.invalid && (contactName.touched)
+                            }">
+                        <img class="input-field-img" alt=""
+                            [ngClass]="{
+                                    'valid': contactName.valid && (contactName.touched),
+                                    'invalid': contactName.invalid && (contactName.touched)
+                            }"/>
+                    </div>
+                    <span class="error" [ngClass]="{
+                                                'visible': contactName.invalid && contactName.touched,
+                                                'invisible': !(contactName.invalid && contactName.touched)
+                                                }">{{ 'contact.error.name' | translate }}</span>
+                </div>
+                <div>
+                    <div class="input-field-wrapper">
+                        <input name="contactEmail" class="input-field" type="email" ngModel #contactEmail="ngModel" placeholder="{{ 'contact.email' | translate }}" required email
+                            [ngClass]="{
+                                    'valid': contactEmail.valid && (contactEmail.touched),
+                                    'invalid': contactEmail.invalid && (contactEmail.touched)
+                            }">
+                        <img class="input-field-img" alt=""
+                            [ngClass]="{
+                                    'valid': contactEmail.valid && (contactEmail.touched),
+                                    'invalid': contactEmail.invalid && (contactEmail.touched)
+                            }"/>
+                    </div>
+                    <span class="error" [ngClass]="{
+                                                'visible': contactEmail.invalid && contactEmail.touched,
+                                                'invisible': !(contactEmail.invalid && contactEmail.touched)
+                                                }">{{ 'contact.error.email' | translate }}</span>
+                </div>
+                <div>
+                    <div class="input-field-wrapper">
+                        <textarea name="contactMessage" class="input-field" type="text" ngModel #contactMessage="ngModel" placeholder="{{ 'contact.message' | translate }}" required
+                            [ngClass]="{
+                                    'valid': contactMessage.valid && (contactMessage.touched),
+                                    'invalid': contactMessage.invalid && (contactMessage.touched)
+                            }"></textarea>
+                        <img class="input-field-img" alt=""
+                            [ngClass]="{
+                                    'valid': contactMessage.valid && (contactMessage.touched),
+                                    'invalid': contactMessage.invalid && (contactMessage.touched)
+                            }"/>
+                        <img class="textarea-resize-handle" src="/icons/textarea-drag.svg" alt=""
+                            [ngClass]="{
+                                        'valid': contactMessage.valid && (contactMessage.touched),
+                                        'invalid': contactMessage.invalid && (contactMessage.touched)
+                                }"/>
+                        <div class="resize-overlay"
+                            [ngClass]="{
+                                        'valid': contactMessage.valid && (contactMessage.touched),
+                                        'invalid': contactMessage.invalid && (contactMessage.touched)
+                                }"></div>
+                    </div>
+                    <span class="error" [ngClass]="{
+                                                'visible': contactMessage.invalid && contactMessage.touched,
+                                                'invisible': !(contactMessage.invalid && contactMessage.touched)
+                                                }">{{ 'contact.error.message' | translate }}</span>
+                </div>
+                <div>
+                    <label class="custom-checkbox">
+                        <input name="contactPrivacy" type="checkbox" ngModel #contactPrivacy="ngModel" required>
+                        <span class="checkbox-img"></span>
+                        <span class="checkbox-text" [innerHTML]="'contact.privacy' | translate"></span>
+                    </label>
+                    <span class="error" [ngClass]="{
+                                                'visible': contactPrivacy.invalid && (contactPrivacy.touched || contactPrivacy.dirty),
+                                                'invisible': !(contactPrivacy.invalid && (contactPrivacy.touched || contactPrivacy.dirty))
+                                                }">{{ 'contact.error.privacy' | translate }}</span>
+                </div>
+                <button class="btn-style1" type="submit" [disabled]="!myForm.valid">{{ 'contact.send' | translate }}</button>
+            </form>
+            <div class="form-rsult" *ngIf="mailSended">
+                <img src="/icons/valid.svg">
+                <p>
+                    {{ 'contact.email.sended' | translate}}
+                </p>
+            </div>
+            <div class="form-rsult" *ngIf="mailSendFailed">                
+                <img src="/icons/invalid.svg">
+                <p>
+                    {{ 'contact.email.failed' | translate}}
+                </p>
+                <div class="btn-style2" (click)="resetFormView()">{{ 'contact.back' | translate }}</div>
+            </div>
+        </div>
+    </div>
+    <a class="gototop" [routerLink]="[]" fragment="hero"><span>↑</span></a>
+</section>

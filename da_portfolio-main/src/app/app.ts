@@ -22,6 +22,6 @@ export class App {
   }
 
   switchLang(lang: string) {
-    this.translate.use(lang);
+    this.translate.use(lang);//probw
   }
 }

@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Wenn Datei existiert -> normal laden
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Wenn Ordner existiert -> normal laden
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Sonst alles auf index.html
+RewriteRule ^ index.html [L]

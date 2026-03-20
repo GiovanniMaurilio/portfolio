@@ -21,13 +21,14 @@
             <app-skill skill="firebase"></app-skill>
             <app-skill skill="git"></app-skill>
             <app-skill skill="api"></app-skill>
-        
+            <app-skill skill="scrum"></app-skill>
             <app-skill skill="materialdesign"></app-skill>                
             <div class="continuallylearning filter-color" #target                        
                 (mouseenter)="showTooltip()"
                 (click)="showTooltip()"
                 (mouseleave)="hideTooltip()">
-            
+                <img src="/icons/continuallylearning.svg" alt="">
+                <span>{{ 'skills.continuallylearning' | translate}}</span>
             </div>
         </div>
     </div>

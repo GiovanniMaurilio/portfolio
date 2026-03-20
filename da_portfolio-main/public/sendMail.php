@@ -1,37 +1,51 @@
 <?php
 
 switch ($_SERVER['REQUEST_METHOD']) {
-    case ("OPTIONS"): //Allow preflighting to take place.
+
+    case ("OPTIONS"):
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: POST");
-        header("Access-Control-Allow-Headers: content-type");
+        header("Access-Control-Allow-Methods: POST, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type");
         exit;
-        case("POST"): //Send the email;
-            header("Access-Control-Allow-Origin: *");
-            // Payload is not send to $_POST Variable,
-            // is send to php:input as a text
-            $json = file_get_contents('php://input');
-            //parse the Payload from text format to Object
-            $params = json_decode($json);
-    
-            $email = $params->email;
-            $name = $params->name;
-            $message = $params->message;
-    
-            $recipient = 'giovannimaurilio04@gmail.com';  
-            $subject = "Contact From <$email>";
-            $message = "From:" . $name . "<br>" . $message ;
-    
-            $headers   = array();
-            $headers[] = 'MIME-Version: 1.0';
-            $headers[] = 'Content-type: text/html; charset=utf-8';
 
-            // Additional headers
-            $headers[] = "From: giovannimaurilio04@gmail.com";
+    case ("POST"):
+        header("Access-Control-Allow-Origin: *");
+        header("Content-Type: application/json");
 
-            mail($recipient, $subject, $message, implode("\r\n", $headers));
-            break;
-        default: //Reject any non POST or OPTIONS requests.
-            header("Allow: POST", true, 405);
+        $json = file_get_contents('php://input');
+        $params = json_decode($json);
+
+        if (!$params) {
+            http_response_code(400);
+            echo json_encode(["status" => "error", "message" => "Invalid JSON"]);
             exit;
-    } 
+        }
+
+        $email = $params->email;
+        $name = $params->name;
+        $message = $params->message;
+
+        $recipient = 'giovannimaurilio04@gmail.com';
+        $subject = "Contact Form <$email>";
+
+        $body = "From: $name <br><br> Message:<br>$message";
+
+        $headers = [];
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=utf-8';
+        $headers[] = 'From: no-reply@deinedomain.de';
+        $headers[] = "Reply-To: $email";
+
+        if (mail($recipient, $subject, $body, implode("\r\n", $headers))) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            http_response_code(500);
+            echo json_encode(["status" => "error", "message" => "Mail failed"]);
+        }
+
+        break;
+
+    default:
+        header("Allow: POST, OPTIONS", true, 405);
+        exit;
+}
